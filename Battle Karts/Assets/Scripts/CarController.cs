@@ -14,9 +14,11 @@ public class CarController : MonoBehaviour
 
     [SerializeField] float acceleration = 500f;
     [SerializeField] float breakingForce = 300f;
+    [SerializeField] float maxTurnAngle = 15f;
 
     float currentAcceleration = 0;
     float currentBreakForce = 0;
+    float currentTurnAngle = 0;
 
     void Awake()
     {
@@ -44,5 +46,9 @@ public class CarController : MonoBehaviour
         frontLeft.brakeTorque = currentBreakForce;
         backRight.brakeTorque = currentBreakForce;
         backLeft.brakeTorque = currentBreakForce;
+
+        currentTurnAngle = maxTurnAngle * controls.Player.Move.ReadValue<Vector2>().x;
+        frontLeft.steerAngle = currentTurnAngle;
+        frontRight.steerAngle = currentTurnAngle;
     }
 }
