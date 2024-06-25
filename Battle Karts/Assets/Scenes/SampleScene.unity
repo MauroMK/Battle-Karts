@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.37782302, g: 0.687408, b: 0.87649095, a: 1}
+  m_IndirectSpecularColor: {r: 0.37805715, g: 0.6874948, b: 0.876525, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1065,6 +1065,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d34e8533c8de8ec45869f9144584d929, type: 3}
   m_PrefabInstance: {fileID: 347806665}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &350882919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100010, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+  m_PrefabInstance: {fileID: 497945380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &350882923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350882919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ccc7b8b879af874d95f8e20488f77f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  motorForce: 1000
+  breakForce: 1500
+  maxSteerAngle: 35
+  frontLeftWheelCollider: {fileID: 497945384}
+  frontRightWheelCollider: {fileID: 497945383}
+  rearLeftWheelCollider: {fileID: 497945382}
+  rearRightWheelCollider: {fileID: 497945381}
+  frontLeftWheelTransform: {fileID: 651062191}
+  frontRightWheelTransform: {fileID: 1652804270}
+  rearLeftWheelTransform: {fileID: 546757027}
+  rearRightWheelTransform: {fileID: 2130570695}
 --- !u!1001 &367324738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1331,7 +1359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1365,11 +1393,82 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 504183622611699230, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 504183622611699230, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151322879666836809, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151322879666836809, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151322879666836809, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151322879666836809, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701154060838229741, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701154060838229741, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582898976417921831, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582898976417921831, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454362592103027853, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454362592103027853, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100010, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 350882923}
   m_SourcePrefab: {fileID: 100100000, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+--- !u!146 &497945381 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 6701154060838229741, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+  m_PrefabInstance: {fileID: 497945380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &497945382 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 504183622611699230, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+  m_PrefabInstance: {fileID: 497945380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &497945383 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 7582898976417921831, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+  m_PrefabInstance: {fileID: 497945380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &497945384 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 8454362592103027853, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+  m_PrefabInstance: {fileID: 497945380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &527624167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1493,6 +1592,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: f75f232634166cc459a69e7fd7a30880, type: 3}
   m_PrefabInstance: {fileID: 528492602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &546757027 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+  m_PrefabInstance: {fileID: 497945380}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &551260574
 PrefabInstance:
@@ -1927,6 +2031,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b14aef9a05449784da6735de9ec90b24, type: 3}
   m_PrefabInstance: {fileID: 640864555}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &651062191 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400006, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+  m_PrefabInstance: {fileID: 497945380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &666635476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2200,13 +2309,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.41883644, y: -0.3443318, z: 0.056411315, w: 0.8383493}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 47.826, y: -52.143, z: -16.782}
 --- !u!1001 &728833159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4910,6 +5019,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 653e28c8a1ae11240a6cdaac2f9ee8ea, type: 3}
   m_PrefabInstance: {fileID: 1609848943}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1652804270 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+  m_PrefabInstance: {fileID: 497945380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1659327292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6285,6 +6399,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b74c48c2e73e17c418c9394124b75daf, type: 3}
   m_PrefabInstance: {fileID: 2120805427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2130570695 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+  m_PrefabInstance: {fileID: 497945380}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
