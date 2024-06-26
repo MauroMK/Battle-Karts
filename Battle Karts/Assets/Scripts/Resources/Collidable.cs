@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Collidable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private BoxCollider boxCollider;
+
+    protected virtual void Awake()
     {
-        
+        boxCollider = GetComponent<BoxCollider>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        
+
+    }
+
+    protected virtual void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("This object collided with " + this.name);
     }
 }

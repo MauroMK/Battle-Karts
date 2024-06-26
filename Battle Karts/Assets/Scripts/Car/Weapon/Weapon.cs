@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
 
     public static void WeaponShoot()
     {
-
+        
     }
 
 }
