@@ -428,6 +428,7 @@ GameObject:
   - component: {fileID: 1151322879666836809}
   - component: {fileID: 2694572158936915990}
   - component: {fileID: 3619594688887202455}
+  - component: {fileID: 8180441412656667535}
   m_Layer: 0
   m_Name: Vehicle_Car_color02_separate
   m_TagString: Untagged
@@ -539,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2643340774
+  GlobalObjectIdHash: 37494709
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -548,6 +549,18 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &8180441412656667535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da111cb9bf8cb74b85c44ee9fc808fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &266092570982971025
 GameObject:
   m_ObjectHideFlags: 0
