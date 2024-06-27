@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1692417232103643496}
   - component: {fileID: 3195610286678344091}
   m_Layer: 0
-  m_Name: Props_Traffic Sign_stop
+  m_Name: Stop_Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

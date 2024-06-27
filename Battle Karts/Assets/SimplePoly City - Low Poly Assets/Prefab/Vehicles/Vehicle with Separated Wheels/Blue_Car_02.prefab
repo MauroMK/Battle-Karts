@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 3619594688887202455}
   - component: {fileID: 8180441412656667535}
   m_Layer: 0
-  m_Name: Vehicle_Car_color02_separate
+  m_Name: Blue_Car_02
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
