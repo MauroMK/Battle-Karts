@@ -740,6 +740,8 @@ MonoBehaviour:
   offset: {x: 0, y: 4.3, z: -8}
   eulerRotation: {x: 15, y: 0, z: 0}
   damper: 1
+  mainCamera: {fileID: 4074462856270659473}
+  ps1RenderTexture: {fileID: 8400000, guid: 40a4bbbad34766b41bbc7ad3e100ace2, type: 2}
 --- !u!1 &4671330907585718381
 GameObject:
   m_ObjectHideFlags: 0
