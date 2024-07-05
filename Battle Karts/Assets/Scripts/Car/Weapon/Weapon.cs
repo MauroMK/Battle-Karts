@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public GameObject weaponPrefab;
-    
+    public GameObject[] weaponPrefabs;
+    public Transform[] weaponAttachLocal;
 
-    public virtual void WeaponShoot()
+    protected virtual void WeaponShoot()
     {
         
+    }
+
+    protected virtual void WeaponMeshSpawn()
+    {
+        //TODO when pickup the weapon, do an animation equipping it
     }
 
 }
