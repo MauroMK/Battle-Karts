@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using Unity.Netcode;
 
-public class CarController : MonoBehaviour
+public class CarController : NetworkBehaviour
 {
     // Settings
     [SerializeField] private Transform centerOfMass;
@@ -17,7 +19,10 @@ public class CarController : MonoBehaviour
     private InputController inputController;
     private Wheel[] wheels;
 
-    void Start()
+    [SerializeField] private CinemachineVirtualCamera playerCamera;
+    [SerializeField] private AudioListener playerAudioListener;
+
+    private void Awake()
     {
         inputController = FindObjectOfType<InputController>();
         wheels = GetComponentsInChildren<Wheel>();
@@ -25,7 +30,20 @@ public class CarController : MonoBehaviour
         _rigidbody.centerOfMass = centerOfMass.localPosition;
     }
 
-    void Update()
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner)
+        {
+            playerAudioListener.enabled = false;
+            playerCamera.Priority = 0;
+            return;
+        }
+
+        playerAudioListener.enabled = true;
+        playerCamera.Priority = 100;
+    }
+
+    void FixedUpdate()
     {
         steer = inputController.steerInput;
         acceleration = inputController.acceleratorInput;
