@@ -115,6 +115,7 @@ public class CarController : NetworkBehaviour
         }
     }
 
+    #region Network
     void HandleClientTick()
     {
         if (!IsClient)
@@ -136,7 +137,7 @@ public class CarController : NetworkBehaviour
         StatePayload statePayload = ProcessMovement(inputPayload);
         clientStateBuffer.Add(statePayload, bufferIndex);
 
-        // HandleServerReconciliation();
+        //* HandleServerReconciliation();
     }
 
     [ServerRpc]
@@ -158,6 +159,8 @@ public class CarController : NetworkBehaviour
             angularVelocity = _rigidbody.angularVelocity,
         };
     }
+
+    #endregion
 
     void Move()
     {

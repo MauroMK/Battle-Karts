@@ -11,12 +11,7 @@ public class InputController : MonoBehaviour
 
     [HideInInspector] public float steerInput;
     [HideInInspector] public float acceleratorInput;
-
-    void Start()
-    {
-        
-    }
-
+    
     void Update()
     {
         steerInput = Input.GetAxis(inputSteerAxis);    

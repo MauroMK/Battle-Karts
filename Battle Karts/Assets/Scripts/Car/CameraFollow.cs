@@ -5,19 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform target;
-
-    [SerializeField] private Vector3 offset;
-    [SerializeField] private Vector3 eulerRotation;
-    [SerializeField] private float damper;
-
     public Camera mainCamera;
     public RenderTexture ps1RenderTexture;
 
     void Start()
     {
-        transform.eulerAngles = eulerRotation;
-
         // Ensure the camera setup on start
         SetupCamera();
 
@@ -35,16 +27,6 @@ public class CameraFollow : MonoBehaviour
     {
         // Ensure the camera setup after loading a new scene
         SetupCamera();
-    }
-
-    void Update()
-    {
-        if (target != null)
-        {
-            return;
-        }
-
-        transform.position = Vector3.Lerp(transform.position, target.position + offset, damper * Time.deltaTime);
     }
 
     private void SetupCamera()
