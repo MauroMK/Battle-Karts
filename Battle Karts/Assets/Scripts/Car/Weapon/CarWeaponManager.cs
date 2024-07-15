@@ -10,7 +10,9 @@ public class CarWeaponManager : MonoBehaviour
 
     [Header("Grabbed items")]
     public GameObject[] equippedWeapons;
-    public Weapon[] weaponScripts;
+    
+    
+    [HideInInspector] public Weapon[] weaponScripts;
 
     private int[] currentAmmoArray;
     
@@ -72,8 +74,6 @@ public class CarWeaponManager : MonoBehaviour
 
         // Associa os dados da arma
         weaponScripts[mountPointIndex].weaponName = weaponData.weaponName;
-        weaponScripts[mountPointIndex].damage = weaponData.damage;
-        weaponScripts[mountPointIndex].range = weaponData.range;
         weaponScripts[mountPointIndex].fireRate = weaponData.fireRate;
         weaponScripts[mountPointIndex].maxAmmo = weaponData.maxAmmo;
 

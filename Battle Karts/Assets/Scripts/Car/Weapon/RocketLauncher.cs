@@ -6,6 +6,8 @@ public class RocketLauncher : Weapon
 {
     protected override void Shoot()
     {
-        Debug.Log("Shooting rockets");
+        GameObject rocket = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        Rocket rocketScript = rocket.GetComponent<Rocket>();
+        rocketScript.Initialize((RocketData)projectileData);
     }
 }

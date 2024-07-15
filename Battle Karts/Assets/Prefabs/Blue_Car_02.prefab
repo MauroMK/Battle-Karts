@@ -832,11 +832,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponMountPoints:
   - {fileID: 8857940656780502970}
-  - {fileID: 2686372008951883474}
   - {fileID: 956639588680342809}
-  _weaponPrefabs: []
-  weaponScripts: []
+  - {fileID: 2686372008951883474}
   equippedWeapons: []
+  weaponScripts: []
 --- !u!1 &6260293523516561856
 GameObject:
   m_ObjectHideFlags: 0

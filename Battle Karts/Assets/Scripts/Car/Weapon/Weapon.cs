@@ -5,10 +5,13 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     public string weaponName;
-    public int damage;
-    public float range;
     public float fireRate;
     public int maxAmmo;
+    
+    [SerializeField] protected GameObject projectilePrefab;
+    [SerializeField] protected Transform barrel;
+
+    public ProjectileData projectileData;
 
     public void Fire()
     {
@@ -16,10 +19,4 @@ public abstract class Weapon : MonoBehaviour
     }
 
     protected abstract void Shoot();
-
-    protected virtual void MeshSpawn()
-    {
-        //TODO when pickup the weapon, do an animation equipping it
-    }
-
 }
