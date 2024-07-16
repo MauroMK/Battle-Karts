@@ -7,7 +7,7 @@ public class Collectable : Collidable
     [SerializeField] private int itemCd = 10;
     public GameObject[] weaponPrefabs;
     public Weapon[] weaponDataList;
-    
+
     protected bool collected;
 
     protected override void Awake()
@@ -32,11 +32,11 @@ public class Collectable : Collidable
             {
                 int randomIndex = Random.Range(0, weaponPrefabs.Length);
 
-                // Encontre um índice de ponto de montagem disponível
+                // Verifica se há um ponto de montagem disponível para equipar a arma
                 int availableMountPointIndex = -1;
-                for (int i = 0; i < carWeaponManager.weaponMountPoints.Length; i++)
+                for (int i = 0; i < carWeaponManager.equippedWeapons.Length; i++)
                 {
-                    if (carWeaponManager.weaponMountPoints[i].childCount == 0)
+                    if (carWeaponManager.equippedWeapons[i] == null)
                     {
                         availableMountPointIndex = i;
                         break;
@@ -45,9 +45,10 @@ public class Collectable : Collidable
 
                 if (availableMountPointIndex != -1)
                 {
-                    carWeaponManager.EquipWeapon(weaponPrefabs[randomIndex], weaponDataList[randomIndex], availableMountPointIndex);
-                    
-                    // Desativa o GameObject por um tempo e depois reativa
+                    // Equipa a arma no ponto de montagem disponível
+                    carWeaponManager.EquipWeapon(weaponPrefabs[randomIndex], weaponDataList[randomIndex]);
+
+                    // Desativa o GameObject do item por um tempo e depois reativa
                     StartCoroutine(PickPowerup(itemCd));
                 }
                 else
@@ -60,7 +61,7 @@ public class Collectable : Collidable
 
     protected virtual void Collect()
     {
-       Debug.Log("Aqui ta errado");
+        Debug.Log("Aqui ta errado");
     }
 
     IEnumerator PickPowerup(float cooldown)

@@ -736,7 +736,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3831680248808704921}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22975291, y: 0.000000018722702, z: -0.00000000441983, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.000000018722702, z: 0.00000000441983, w: 0.973249}
   m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -813,9 +813,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 956639588680342809}
   - {fileID: 8857940656780502970}
   - {fileID: 2686372008951883474}
-  - {fileID: 956639588680342809}
   m_Father: {fileID: 400010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1832173524503129634
@@ -830,10 +830,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7abcdad4e51f6438324521781ad994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponMountPoints:
-  - {fileID: 8857940656780502970}
-  - {fileID: 956639588680342809}
-  - {fileID: 2686372008951883474}
+  rocketLauncherMountPoint: {fileID: 956639588680342809}
+  minigunMountPoint: {fileID: 8857940656780502970}
+  mortarMountPoint: {fileID: 2686372008951883474}
   equippedWeapons: []
   weaponScripts: []
 --- !u!1 &6260293523516561856
@@ -863,7 +862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6260293523516561856}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22975291, y: 0.000000018722702, z: -0.00000000441983, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.000000018722702, z: 0.00000000441983, w: 0.973249}
   m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

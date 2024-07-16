@@ -31,6 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5937776274940607560}
+  - {fileID: 4631792502290672530}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-1810155137987538061
@@ -46,10 +47,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: RocketLauncher
-  damage: 5
-  range: 10
   fireRate: 1
   maxAmmo: 5
+  projectilePrefab: {fileID: 1765339897963153959, guid: 56d60ea0b701e6246a6001b613ec2fdd, type: 3}
+  barrel: {fileID: 4631792502290672530}
+  projectileData: {fileID: 11400000, guid: a89dbcefc23f53a428e2f455003723b8, type: 2}
+--- !u!1 &4388616218133798007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4631792502290672530}
+  m_Layer: 0
+  m_Name: Barrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4631792502290672530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388616218133798007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.221, y: -0.036, z: 0.629}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6276032773879509077}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5937776274940733128
 PrefabInstance:
   m_ObjectHideFlags: 0

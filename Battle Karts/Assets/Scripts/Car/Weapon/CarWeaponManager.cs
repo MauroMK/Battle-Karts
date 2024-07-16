@@ -1,28 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarWeaponManager : MonoBehaviour
 {
     [Header("Weapon spots")]
-    public Transform[] weaponMountPoints;
+    public Transform rocketLauncherMountPoint;
+    public Transform minigunMountPoint;
+    public Transform mortarMountPoint;
 
     [Header("Grabbed items")]
     public GameObject[] equippedWeapons;
-    
-    
+
     [HideInInspector] public Weapon[] weaponScripts;
 
-    private int[] currentAmmoArray;
-    
-    private int selectedWeaponIndex = 0;
+    private int selectedWeaponIndex = -1;
+
+    private Dictionary<string, Transform> weaponMountMapping;
 
     private void Start()
     {
-        // Inicializa os arrays de armas equipadas, dados e munição
-        equippedWeapons = new GameObject[weaponMountPoints.Length];
-        weaponScripts = new Weapon[weaponMountPoints.Length];
+        // Inicializa os arrays de armas equipadas e scripts de armas
+        equippedWeapons = new GameObject[3];
+        weaponScripts = new Weapon[3];
+
+        // Inicia o mapeamento das armas para seus pontos de montagem
+        weaponMountMapping = new Dictionary<string, Transform>
+        {
+            { "RocketLauncher", rocketLauncherMountPoint },
+            { "Minigun", minigunMountPoint },
+            { "Mortar", mortarMountPoint },
+            // Adicione outros tipos de arma e seus pontos de montagem conforme necessário
+        };
     }
 
     private void Update()
@@ -46,11 +55,35 @@ public class CarWeaponManager : MonoBehaviour
         }
     }
 
-    public void EquipWeapon(GameObject weaponPrefab, Weapon weaponData, int  mountPointIndex)
+    public void EquipWeapon(GameObject weaponPrefab, Weapon weaponData)
     {
-        if (mountPointIndex < 0 || mountPointIndex >= weaponMountPoints.Length)
+        // Verifica se o tipo de arma tem um ponto de montagem específico
+        if (!weaponMountMapping.TryGetValue(weaponData.weaponName, out Transform mountPoint))
         {
-            Debug.LogError("Índice de ponto de montagem inválido.");
+            Debug.LogError("Tipo de arma não mapeado para ponto de montagem: " + weaponData.weaponName);
+            return;
+        }
+
+        int mountPointIndex = -1;
+
+        // Encontra o índice correto no array de armas equipadas
+        switch (weaponData.weaponName)
+        {
+            case "RocketLauncher":
+                mountPointIndex = 0;
+                break;
+            case "Minigun":
+                mountPointIndex = 1;
+                break;
+            case "Mortar":
+                mountPointIndex = 2;
+                break;
+            // Adicione outros tipos de arma conforme necessário
+        }
+
+        if (mountPointIndex == -1)
+        {
+            Debug.LogError("Tipo de arma não reconhecido: " + weaponData.weaponName);
             return;
         }
 
@@ -60,11 +93,11 @@ public class CarWeaponManager : MonoBehaviour
             Destroy(equippedWeapons[mountPointIndex]);
         }
 
-        //* Instancia a nova arma no ponto de montagem
-        equippedWeapons[mountPointIndex] = Instantiate(weaponPrefab, weaponMountPoints[mountPointIndex].position, weaponMountPoints[mountPointIndex].rotation, weaponMountPoints[mountPointIndex]);
-        equippedWeapons[mountPointIndex].transform.SetParent(weaponMountPoints[mountPointIndex]);
-        
-        //* Pega o script da arma
+        // Instancia a nova arma no ponto de montagem
+        equippedWeapons[mountPointIndex] = Instantiate(weaponPrefab, mountPoint.position, mountPoint.rotation, mountPoint);
+        equippedWeapons[mountPointIndex].transform.SetParent(mountPoint);
+
+        // Pega o script da arma
         weaponScripts[mountPointIndex] = equippedWeapons[mountPointIndex].GetComponent<Weapon>();
         if (weaponScripts[mountPointIndex] == null)
         {
@@ -77,8 +110,9 @@ public class CarWeaponManager : MonoBehaviour
         weaponScripts[mountPointIndex].fireRate = weaponData.fireRate;
         weaponScripts[mountPointIndex].maxAmmo = weaponData.maxAmmo;
 
+
         // Seleciona a arma equipada se for a primeira
-        if (mountPointIndex == 0 && selectedWeaponIndex == -1)
+        if (selectedWeaponIndex == -1)
         {
             selectedWeaponIndex = mountPointIndex;
         }
@@ -92,14 +126,17 @@ public class CarWeaponManager : MonoBehaviour
             {
                 weaponScripts[selectedWeaponIndex].Fire();
             }
-
-            if (equippedWeapons[selectedWeaponIndex] == null)
+            else
             {
-                Debug.Log("não pegou a arma");
+                Debug.Log("Arma não equipada no índice selecionado.");
             }
         }
+        else
+        {
+            Debug.Log("Nenhuma arma selecionada.");
+        }
     }
-    
+
     private void SelectWeapon(int index)
     {
         if (index >= 0 && index < equippedWeapons.Length)
@@ -108,6 +145,10 @@ public class CarWeaponManager : MonoBehaviour
             {
                 selectedWeaponIndex = index;
                 Debug.Log("Selected weapon: " + index);
+            }
+            else
+            {
+                Debug.Log("Nenhuma arma equipada no índice: " + index);
             }
         }
     }
