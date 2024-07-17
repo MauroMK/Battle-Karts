@@ -1420,7 +1420,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 260808cfd9b21994d8c3007a7bc9934c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1131277920}
   m_SourcePrefab: {fileID: 100100000, guid: 260808cfd9b21994d8c3007a7bc9934c, type: 3}
 --- !u!4 &341816024 stripped
 Transform:
@@ -4650,6 +4653,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d34e8533c8de8ec45869f9144584d929, type: 3}
   m_PrefabInstance: {fileID: 1109186796}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1131277919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 260808cfd9b21994d8c3007a7bc9934c, type: 3}
+  m_PrefabInstance: {fileID: 341816023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1131277920
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131277919}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 25449c1a4c4ca004ead70b6c0889695b, type: 3}
 --- !u!1001 &1166596919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8221,6 +8251,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 387835473594962458, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
+      propertyPath: itemCd
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 387835473594962458, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
       propertyPath: weaponPrefabs.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -8231,19 +8265,19 @@ PrefabInstance:
     - target: {fileID: 387835473594962458, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
       propertyPath: weaponPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 584319297235801756, guid: add4767a1665b314aaad510ca1f43332, type: 3}
+      objectReference: {fileID: 584319297235801756, guid: a6e0bc3af1cf87c4e8c55c4dfec053d8, type: 3}
     - target: {fileID: 387835473594962458, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
       propertyPath: weaponPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 584319297235801756, guid: a6e0bc3af1cf87c4e8c55c4dfec053d8, type: 3}
+      objectReference: {fileID: 584319297235801756, guid: add4767a1665b314aaad510ca1f43332, type: 3}
     - target: {fileID: 387835473594962458, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
       propertyPath: weaponDataList.Array.data[0]
       value: 
-      objectReference: {fileID: -1810155137987538061, guid: add4767a1665b314aaad510ca1f43332, type: 3}
+      objectReference: {fileID: -1810155137987538061, guid: a6e0bc3af1cf87c4e8c55c4dfec053d8, type: 3}
     - target: {fileID: 387835473594962458, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
       propertyPath: weaponDataList.Array.data[1]
       value: 
-      objectReference: {fileID: -1810155137987538061, guid: a6e0bc3af1cf87c4e8c55c4dfec053d8, type: 3}
+      objectReference: {fileID: 3529197005348578454, guid: add4767a1665b314aaad510ca1f43332, type: 3}
     - target: {fileID: 1303308214954564146, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
       propertyPath: m_IsTrigger
       value: 1

@@ -21,8 +21,8 @@ public class CarWeaponManager : MonoBehaviour
     private void Start()
     {
         // Inicializa os arrays de armas equipadas e scripts de armas
-        equippedWeapons = new GameObject[1];
-        weaponScripts = new Weapon[1];
+        equippedWeapons = new GameObject[3];
+        weaponScripts = new Weapon[3];
 
         // Inicia o mapeamento das armas para seus pontos de montagem
         weaponMountMapping = new Dictionary<string, Transform>

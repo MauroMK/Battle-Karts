@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6276032773879509077}
-  - component: {fileID: -1810155137987538061}
+  - component: {fileID: 3529197005348578454}
   m_Layer: 0
   m_Name: Minigun
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 4631792502290672530}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1810155137987538061
+--- !u!114 &3529197005348578454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,15 +43,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 584319297235801756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 758436d721225404cbc5ed0ada4362bb, type: 3}
+  m_Script: {fileID: 11500000, guid: c584352f96d5c054a89624fb84e2bf2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: RocketLauncher
-  fireRate: 1
-  maxAmmo: 5
-  projectilePrefab: {fileID: 1765339897963153959, guid: 56d60ea0b701e6246a6001b613ec2fdd, type: 3}
+  weaponName: Minigun
+  fireRate: 0.1
+  maxAmmo: 50
+  projectilePrefab: {fileID: 1765339897963153959, guid: b23212d200f2bd34b8fa6ebc9e727da5, type: 3}
   barrel: {fileID: 4631792502290672530}
-  projectileData: {fileID: 11400000, guid: a89dbcefc23f53a428e2f455003723b8, type: 2}
+  projectileData: {fileID: 11400000, guid: 39d848117b48386439261877e1bf358a, type: 2}
 --- !u!1 &4388616218133798007
 GameObject:
   m_ObjectHideFlags: 0
