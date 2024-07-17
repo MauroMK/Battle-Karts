@@ -6,6 +6,7 @@ public abstract class Weapon : MonoBehaviour
 {
     public string weaponName;
     public float fireRate;
+    public int currentAmmo;
     public int maxAmmo;
     
     [SerializeField] protected GameObject projectilePrefab;
@@ -13,9 +14,14 @@ public abstract class Weapon : MonoBehaviour
 
     public ProjectileData projectileData;
 
+    public void Start()
+    {
+        currentAmmo = maxAmmo;
+    }
+
     public void Fire()
     {
-        maxAmmo -= 1;
+        currentAmmo -= 1;
         Shoot();
     }
 

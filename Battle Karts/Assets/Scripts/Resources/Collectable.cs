@@ -8,8 +8,6 @@ public class Collectable : Collidable
     public GameObject[] weaponPrefabs;
     public Weapon[] weaponDataList;
 
-    protected bool collected;
-
     protected override void Awake()
     {
         base.Awake();
@@ -32,29 +30,11 @@ public class Collectable : Collidable
             {
                 int randomIndex = Random.Range(0, weaponPrefabs.Length);
 
-                // Verifica se há um ponto de montagem disponível para equipar a arma
-                int availableMountPointIndex = -1;
-                for (int i = 0; i < carWeaponManager.equippedWeapons.Length; i++)
-                {
-                    if (carWeaponManager.equippedWeapons[i] == null)
-                    {
-                        availableMountPointIndex = i;
-                        break;
-                    }
-                }
+                // Equipa a arma no primeiro ponto de montagem disponível
+                carWeaponManager.EquipWeapon(weaponPrefabs[randomIndex], weaponDataList[randomIndex]);
 
-                if (availableMountPointIndex != -1)
-                {
-                    // Equipa a arma no ponto de montagem disponível
-                    carWeaponManager.EquipWeapon(weaponPrefabs[randomIndex], weaponDataList[randomIndex]);
-
-                    // Desativa o GameObject do item por um tempo e depois reativa
-                    StartCoroutine(PickPowerup(itemCd));
-                }
-                else
-                {
-                    Debug.Log("No available mount points for weapons.");
-                }
+                // Desativa o GameObject do item por um tempo e depois reativa
+                StartCoroutine(PickPowerup(itemCd));
             }
         }
     }

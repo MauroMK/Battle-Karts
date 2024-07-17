@@ -64,58 +64,67 @@ public class CarWeaponManager : MonoBehaviour
             return;
         }
 
-        int mountPointIndex = -1;
-
-        // Encontra o índice correto no array de armas equipadas
-        switch (weaponData.weaponName)
+        // Verifica se a arma já está equipada
+        for (int i = 0; i < equippedWeapons.Length; i++)
         {
-            case "RocketLauncher":
-                mountPointIndex = 0;
-                break;
-            case "Minigun":
-                mountPointIndex = 1;
-                break;
-            case "Mortar":
-                mountPointIndex = 2;
-                break;
-            // Adicione outros tipos de arma conforme necessário
+            if (equippedWeapons[i] != null && weaponScripts[i].weaponName == weaponData.weaponName)
+            {
+                // Recarrega a munição da arma
+                weaponScripts[i].currentAmmo = weaponScripts[i].maxAmmo;
+                Debug.Log("Arma já equipada, munição da " + weaponData.weaponName + "recarregada");
+                return;
+            }
         }
 
-        if (mountPointIndex == -1)
+        // Encontra o primeiro índice disponível no array de armas equipadas
+        int availableMountPointIndex = FindFirstAvailableMountPoint();
+        if (availableMountPointIndex == -1)
         {
-            Debug.LogError("Tipo de arma não reconhecido: " + weaponData.weaponName);
+            Debug.LogError("No available mount points for weapons.");
             return;
         }
 
         // Remove a arma existente no ponto de montagem, se houver
-        if (equippedWeapons[mountPointIndex] != null)
+        if (equippedWeapons[availableMountPointIndex] != null)
         {
-            Destroy(equippedWeapons[mountPointIndex]);
+            Destroy(equippedWeapons[availableMountPointIndex]);
         }
 
         // Instancia a nova arma no ponto de montagem
-        equippedWeapons[mountPointIndex] = Instantiate(weaponPrefab, mountPoint.position, mountPoint.rotation, mountPoint);
-        equippedWeapons[mountPointIndex].transform.SetParent(mountPoint);
+        equippedWeapons[availableMountPointIndex] = Instantiate(weaponPrefab, mountPoint.position, mountPoint.rotation, mountPoint);
+        equippedWeapons[availableMountPointIndex].transform.SetParent(mountPoint);
 
         // Pega o script da arma
-        weaponScripts[mountPointIndex] = equippedWeapons[mountPointIndex].GetComponent<Weapon>();
-        if (weaponScripts[mountPointIndex] == null)
+        weaponScripts[availableMountPointIndex] = equippedWeapons[availableMountPointIndex].GetComponent<Weapon>();
+        if (weaponScripts[availableMountPointIndex] == null)
         {
             Debug.LogError("O prefab da arma não contém um componente Weapon.");
             return;
         }
 
         // Associa os dados da arma
-        weaponScripts[mountPointIndex].weaponName = weaponData.weaponName;
-        weaponScripts[mountPointIndex].fireRate = weaponData.fireRate;
-        weaponScripts[mountPointIndex].maxAmmo = weaponData.maxAmmo;
-
+        weaponScripts[availableMountPointIndex].weaponName = weaponData.weaponName;
+        weaponScripts[availableMountPointIndex].fireRate = weaponData.fireRate;
+        weaponScripts[availableMountPointIndex].currentAmmo = weaponData.maxAmmo;
 
         // Seleciona a arma equipada se for a primeira
         if (selectedWeaponIndex == -1)
         {
-            selectedWeaponIndex = mountPointIndex;
+            selectedWeaponIndex = availableMountPointIndex;
         }
+    }
+
+    private int FindFirstAvailableMountPoint()
+    {
+        for (int i = 0; i < equippedWeapons.Length; i++)
+        {
+            if (equippedWeapons[i] == null)
+            {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     public void FireSelectedWeapon()
