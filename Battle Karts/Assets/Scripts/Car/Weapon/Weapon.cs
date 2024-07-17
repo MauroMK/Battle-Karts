@@ -15,6 +15,7 @@ public abstract class Weapon : MonoBehaviour
 
     public void Fire()
     {
+        maxAmmo -= 1;
         Shoot();
     }
 

@@ -21,8 +21,8 @@ public class CarWeaponManager : MonoBehaviour
     private void Start()
     {
         // Inicializa os arrays de armas equipadas e scripts de armas
-        equippedWeapons = new GameObject[3];
-        weaponScripts = new Weapon[3];
+        equippedWeapons = new GameObject[1];
+        weaponScripts = new Weapon[1];
 
         // Inicia o mapeamento das armas para seus pontos de montagem
         weaponMountMapping = new Dictionary<string, Transform>
@@ -125,6 +125,10 @@ public class CarWeaponManager : MonoBehaviour
             if (equippedWeapons[selectedWeaponIndex] != null)
             {
                 weaponScripts[selectedWeaponIndex].Fire();
+                if (weaponScripts[selectedWeaponIndex].maxAmmo <= 0)
+                {
+                    Destroy(equippedWeapons[selectedWeaponIndex]);
+                }
             }
             else
             {
