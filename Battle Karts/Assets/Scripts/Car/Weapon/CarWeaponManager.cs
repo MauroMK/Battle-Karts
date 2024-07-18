@@ -134,9 +134,10 @@ public class CarWeaponManager : MonoBehaviour
             if (equippedWeapons[selectedWeaponIndex] != null)
             {
                 weaponScripts[selectedWeaponIndex].Fire();
-                if (weaponScripts[selectedWeaponIndex].maxAmmo <= 0)
+                if (weaponScripts[selectedWeaponIndex].currentAmmo <= 0)
                 {
                     Destroy(equippedWeapons[selectedWeaponIndex]);
+                    equippedWeapons[selectedWeaponIndex] = null;
                 }
             }
             else
