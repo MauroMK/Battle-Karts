@@ -12,6 +12,11 @@ public class Minigun : Projectile
         Move();
     }
 
+    public new void Update()
+    {
+        base.Update();
+    }
+
     public void Initialize(MinigunData data)
     {
         base.Initialize(data);

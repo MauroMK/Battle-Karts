@@ -12,6 +12,11 @@ public class Rocket : Projectile
         Move();
     }
 
+    public new void Update()
+    {
+        base.Update();
+    }
+
     public void Initialize(RocketData data)
     {
         base.Initialize(data);
