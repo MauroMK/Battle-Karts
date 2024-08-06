@@ -14,11 +14,32 @@ public class Collectable : Collidable
     [SerializeField] private float EffectScale;
     private Vector3 Scale;
 
+    [Header("Animation Speed")]
+    [SerializeField] private float rotateSpeed;
+    [SerializeField] private float heightGoal;
+    [SerializeField] private float heightTime;
+    private Vector3 initialPosition;
+    private LTDescr moveTween;
+    private LTDescr rotateTween;
+
     private string playerTag = "Player";
 
     protected override void Awake()
     {
         base.Awake();
+        initialPosition = transform.position;
+    }
+
+    private void Start()
+    {
+        // Inicia a animação de movimento vertical
+        moveTween = LeanTween.moveLocalY(gameObject, heightGoal, heightTime)
+            .setEaseInOutSine()
+            .setLoopPingPong();
+
+        // Inicia a animação de rotação
+        rotateTween = LeanTween.rotateAround(gameObject, Vector3.up, 360f, rotateSpeed)
+            .setLoopClamp();
     }
 
     protected override void OnCollisionEnter(Collision other)
@@ -50,7 +71,7 @@ public class Collectable : Collidable
         //TODO fazer algo
     }
 
-    private void HandleParticle()
+    protected virtual void HandleParticle()
     {
         if (collectParticle != null)
         {
@@ -65,7 +86,7 @@ public class Collectable : Collidable
         }
     }
 
-    IEnumerator PickPowerup(float cooldown)
+    protected virtual IEnumerator PickPowerup(float cooldown)
     {
         Debug.Log("Start Pickup");
         boxCollider.enabled = false;

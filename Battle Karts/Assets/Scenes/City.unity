@@ -5582,6 +5582,145 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 13.000001, y: 16.928885, z: 13.065448}
   m_Center: {x: 0.000009059906, y: 8.464442, z: 0.475636}
+--- !u!1001 &871014873
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 887373877}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+      propertyPath: m_Name
+      value: RocketLauncher3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.011228085
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.002954483
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9659258
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.25881928
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+--- !u!4 &871014874 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 937820a089a3028479fee74c9d97b590, type: 3}
+  m_PrefabInstance: {fileID: 871014873}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &887373875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 887373877}
+  - component: {fileID: 887373878}
+  - component: {fileID: 887373879}
+  m_Layer: 0
+  m_Name: RocketLauncherPickUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &887373877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887373875}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7410138, z: -0, w: 0.6714899}
+  m_LocalPosition: {x: 1.2909117, y: 2, z: -27.241514}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 871014874}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1344.364, z: 0}
+--- !u!65 &887373878
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887373875}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &887373879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887373875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df94efed7b4c8aa46b5c53b4a194fc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCd: 10
+  weaponPrefabs:
+  - {fileID: 584319297235801756, guid: a6e0bc3af1cf87c4e8c55c4dfec053d8, type: 3}
+  weaponDataList:
+  - {fileID: -1810155137987538061, guid: a6e0bc3af1cf87c4e8c55c4dfec053d8, type: 3}
+  collectParticle: {fileID: 613490626776560955, guid: 494ddfa4d4713e447abb58870d24f85c, type: 3}
+  EffectScale: 2
+  rotateSpeed: 150
+  heightGoal: 3
+  heightTime: 1
 --- !u!1 &892681363
 GameObject:
   m_ObjectHideFlags: 0
@@ -12824,8 +12963,20 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 387835473594962458, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
+      propertyPath: heightGoal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387835473594962458, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
+      propertyPath: heightTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387835473594962458, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
       propertyPath: EffectScale
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 387835473594962458, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
+      propertyPath: rotateSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 387835473594962458, guid: 9e4a04806abd9d843bef600c2905126d, type: 3}
       propertyPath: collectParticle
@@ -12924,3 +13075,4 @@ SceneRoots:
   - {fileID: 5262722343857166154}
   - {fileID: 2054492319}
   - {fileID: 1553276763}
+  - {fileID: 887373877}
