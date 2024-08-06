@@ -10,9 +10,12 @@ public abstract class Projectile : MonoBehaviour
     protected float lifetime;
     protected Rigidbody projectileRb;
 
+    private Fighter fighterScript;
+
     public void Start()
     {
         projectileRb = GetComponent<Rigidbody>();
+        fighterScript = FindObjectOfType<Fighter>();
     }
 
     public void Update()
@@ -34,6 +37,18 @@ public abstract class Projectile : MonoBehaviour
         if (lifetime <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            fighterScript.TakeDamage(damage);
+        }
+        else
+        {
+            Debug.Log("Hit something else");
         }
     }
 
